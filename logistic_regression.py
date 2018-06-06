@@ -77,21 +77,16 @@ def model(X_train, Y_train, X_test, Y_test, num_iterations = 2000, learning_rate
     w = parameters["w"]
     b = parameters["b"]    
     Y_prediction_test = predict(w,b,X_test)
-    Y_prediction_train = predict(w,b,X_train)
-
-    
+    Y_prediction_train = predict(w,b,X_train)   
     print("train accuracy: {} %".format(100 - np.mean(np.abs(Y_prediction_train - Y_train)) * 100))
-    print("test accuracy: {} %".format(100 - np.mean(np.abs(Y_prediction_test - Y_test)) * 100))
-
-    
+    print("test accuracy: {} %".format(100 - np.mean(np.abs(Y_prediction_test - Y_test)) * 100)) 
     d = {"costs": costs,
          "Y_prediction_test": Y_prediction_test, 
          "Y_prediction_train" : Y_prediction_train, 
          "w" : w, 
          "b" : b,
          "learning_rate" : learning_rate,
-         "num_iterations": num_iterations}
-    
+         "num_iterations": num_iterations}   
     return d            
 
 X_list=[]
@@ -107,8 +102,6 @@ Y_trainset=Y[:,0:400]
 X_testset=X[:,400:]
 Y_testset=Y[:,400:]    
 d = model(X_trainset, Y_trainset, X_testset, Y_testset, num_iterations = 2000, learning_rate = 0.005, print_cost = True)
-
-
 costs = np.squeeze(d['costs'])
 plt.plot(costs)
 plt.ylabel('cost')
