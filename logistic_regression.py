@@ -63,7 +63,6 @@ def predict(w, b, X):
     Y_prediction = np.zeros((1,m))
     w = w.reshape(X.shape[0], 1)        
     A = sigmoid(np.dot(w.T,X)+b)
-    print(A.shape)
     for i in range(A.shape[1]):
         if A[0][i]<=0.75:
             Y_prediction[0][i]=0
@@ -87,7 +86,9 @@ def model(X_train, Y_train, X_test, Y_test, num_iterations = 2000, learning_rate
          "b" : b,
          "learning_rate" : learning_rate,
          "num_iterations": num_iterations}   
-    return d            
+    return d  
+
+       
 
 X_list=[]
 Y_list=[]                
